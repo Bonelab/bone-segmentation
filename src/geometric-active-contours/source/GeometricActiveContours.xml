@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <title> Geometric Active Contours </title>
+  <category> Level Sets </category>
+  <version> 1.0 </version>
+  <documentation-url> - </documentation-url>
+  <license> - </license>
+  <contributor> Marcel Krcah, Computer Vision Laboratory, ETH Zurich </contributor>
+  <acknowledgements> - </acknowledgements>
+
+  <parameters>
+    <label>Input/Output</label>
+    <description>Input/output parameters</description>
+
+    <double>
+      <name>propagationScaling</name>
+      <description>Propagation scaling parameter</description>
+      <flag>p</flag>
+      <longflag>propagation</longflag>
+      <label>Propagation scaling</label>
+      <default>1.0</default>
+    </double>
+
+    <double>
+      <name>curvatureScaling</name>
+      <description>Curvature scaling parameter</description>
+      <longflag>curvatureScaling</longflag>
+      <flag>c</flag>
+      <label>Curvature scaling</label>
+      <default>0.5</default>
+    </double>
+
+    <double>
+      <name>maximumRMSError</name>
+      <description>Root mean squared (RMS) change in the level set function</description>
+      <longflag>maximumError</longflag>
+      <flag>e</flag>
+      <label>Maximum Error</label>
+      <default>0.02</default>
+    </double>
+
+    <integer>
+      <name>numberOfIterations</name>
+      <description>Number of iterations of the curve evolution</description>
+      <longflag>iterations</longflag>
+      <flag>i</flag>
+      <label>Iterations</label>
+      <default>100</default>
+    </integer>
+
+    <image>
+	<name>initLevelSet</name>
+	<label>Initial Level Set</label>
+	<channel>input</channel>
+	<index>0</index>
+	<default>None</default>
+	<description>Input Image</description>
+    </image>
+
+    <image>
+	<name>featureImage</name>
+	<label>Feature Image</label>
+	<channel>input</channel>
+	<index>1</index>
+	<default>None</default>
+	<description>Feature image</description>
+    </image>
+
+
+    <image>
+	<name>outputImage</name>
+	<label>Output Image</label>
+	<channel>output</channel>
+	<index>2</index>
+	<default>None</default>
+	<description>Output Image</description>
+    </image>
+
+	<string-enumeration>
+      <name>outputFormat</name>
+      <flag>f</flag>
+      <longflag>outputFormat</longflag>
+      <description>Format of the output</description>
+      <label>Output format</label>
+      <default>curve</default>
+      <element>curve</element>
+      <element>distance-map</element>
+      <element>curve-interior</element>
+      <element>curve-exterior</element>
+    </string-enumeration>
+
+
+</parameters>
+
+</executable>
