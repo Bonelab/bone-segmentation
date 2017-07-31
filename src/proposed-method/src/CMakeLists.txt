@@ -13,8 +13,7 @@ IF(ITK_FOUND)
 ELSE(ITK_FOUND)
 	MESSAGE(FATAL_ERROR "ITK not found. Please set ITK_DIR.")
 ENDIF(ITK_FOUND)
-set(ITK_LIBS ITKCommon ITKIO)
-
+set(ITK_LIBS ${ITK_LIBRARIES})
 
 # Compilation of maxflow library
 add_subdirectory(${EXTERNAL_LIBS_SRC_DIR}/maxflow-v3.01)
@@ -27,4 +26,3 @@ include_directories(${BONE_SEGMENTATION_SOURCE_DIR} filters utils
 add_executable(SegmentBoneFromCT Main.cxx)
 
 target_link_libraries(SegmentBoneFromCT Graph MaxFlow ${ITK_LIBS})
-

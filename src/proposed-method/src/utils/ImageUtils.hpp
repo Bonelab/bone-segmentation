@@ -27,6 +27,7 @@
 #include "itkRegionOfInterestImageFilter.h"
 #include "itkCastImageFilter.h"
 
+#include <string>
 
 template<class ImageType>
 class ImageUtils {

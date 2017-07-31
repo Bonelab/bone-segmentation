@@ -64,7 +64,7 @@ private:
 
     ImageRegion _largestRegion;
     ImageRegionSize _largestRegionSize;
-    float _infinityDistance;
+    float _infinityDistance; // TODO: Set to Label
     PropagationImagePointer _propagationImage;
 
     struct TemplateElement {

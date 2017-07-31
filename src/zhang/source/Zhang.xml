@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <title> Zhang </title>
+  <category> Other methods </category>
+  <version> 1.0 </version>
+  <documentation-url> - </documentation-url>
+  <license> - </license>
+  <contributor> Marcel Krcah, Computer Vision Laboratory, ETH Zurich </contributor>
+  <acknowledgements> - </acknowledgements>
+  
+  <parameters>
+    <label>Input/Output</label>
+    <description>Input/output parameters</description>
+    <!--    
+     <integer>
+      <name>sliceNumber</name>
+      <description>slice number</description>
+      <longflag>sliceNumber</longflag>
+      <label>Slice number</label>
+      <default>0</default>
+    </integer>
+
+   <string-enumeration>
+      <name>direction</name>
+      <flag>d</flag>
+      <longflag>direction</longflag>
+      <description>Direction</description>
+      <label>Direction</label>
+      <default>axial</default>
+      	<element>axial</element>
+	<element>sagittal</element>
+	<element>coronal</element>
+    </string-enumeration>
+	-->
+
+    <image>
+	<name>inputFilename</name>
+	<label> Input Image</label>
+	<channel>input</channel>
+	<index>0</index>
+	<default>None</default>
+	<description>Input Image</description>
+    </image>
+    
+    <image>
+	<name>outputFilename</name>
+	<label>Output Image</label>
+	<channel>output</channel>
+	<index>1</index>
+	<default>None</default>
+	<description>Output Image</description>
+    </image>
+    
+</parameters>
+
+</executable>
