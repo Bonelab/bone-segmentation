@@ -25,6 +25,7 @@
 
 #include "boost/format.hpp"
 #include "boost/timer.hpp"
+#include <string>
 
 const unsigned int Dimension = 3;
 
@@ -40,12 +41,11 @@ typedef ShortImage::Pointer ShortImagePtr;
 typedef CharImage::Pointer  CharImagePtr;
 typedef UCharImage::Pointer UCharImagePtr;
 typedef UIntImage::Pointer  UIntImagePtr;
-typedef IntImage::Pointer  IntImagePtr;
+typedef IntImage::Pointer   IntImagePtr;
 
-typedef UCharImage::SizeType ImageSize;
-typedef UCharImage::IndexType ImageIndex;
-typedef UCharImage::RegionType ImageRegion;
-
+typedef itk::Size< Dimension > ImageSize;
+typedef itk::Index< Dimension > ImageIndex;
+typedef itk::ImageRegion< Dimension > ImageRegion;
 
 
 
