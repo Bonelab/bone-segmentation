@@ -26,6 +26,7 @@
 #include "itkImageDuplicator.h"
 #include "itkRegionOfInterestImageFilter.h"
 #include "itkCastImageFilter.h"
+#include "itkMinimumMaximumImageCalculator.h"
 
 #include <string>
 
@@ -41,6 +42,8 @@ class ImageUtils {
     typedef typename DuplicatorType::Pointer DuplicatorPointerType;
 	typedef itk::RegionOfInterestImageFilter<ImageType,ImageType> ROIFilterType;
     typedef typename ROIFilterType::Pointer ROIFilterPointerType;
+    typedef itk::MinimumMaximumImageCalculator< ImageType > MinimumMaximumImageCalculatorType;
+    typedef typename MinimumMaximumImageCalculatorType::Pointer MinimumMaximumImageCalculatorPointerType;
 
     typedef typename ImageType::Pointer  ImagePointerType;
     typedef typename ImageType::IndexType IndexType;
@@ -48,6 +51,7 @@ class ImageUtils {
     typedef typename ImageType::RegionType RegionType;
     typedef typename ImageType::OffsetType OffsetType;
     typedef typename ImageType::SpacingType SpacingType;
+    typedef typename ImageType::PixelType PixelType;
 
 
 private:
@@ -192,6 +196,14 @@ public:
         }
 
         return true;
+    }
+
+    static PixelType maximumValueInImage(ImagePointerType itkImage) {
+        MinimumMaximumImageCalculatorPointerType filter = MinimumMaximumImageCalculatorType::New();
+
+        filter->SetImage(itkImage);
+        filter->Compute();
+        return filter->GetMaximum();
     }
 
 

@@ -38,5 +38,15 @@ if (ALGO_BUILD_ALL)
         add_subdirectory (zhang)
     endif(ALGO_ZHANG_ET_AL)
 
+    option (ALGO_ANNOTATED "Build and install annotated slices algorithm" ON)
+    if (ALGO_ANNOTATED)
+        add_subdirectory (annotated-slices)
+    endif(ALGO_ANNOTATED)
+
+    option (ALGO_ASSEMBLY "Build and install assembly" ON)
+    if (ALGO_ASSEMBLY)
+        add_subdirectory (assembly)
+    endif(ALGO_ASSEMBLY)
+
     # New segmentation algorithms go here
 endif (ALGO_BUILD_ALL)

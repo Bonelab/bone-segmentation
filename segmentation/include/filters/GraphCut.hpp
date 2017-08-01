@@ -32,12 +32,9 @@ template<unsigned int Dimension> // dimension of the input image
 class GraphCutSegmentation {
 
 public:
-
-
     typedef unsigned LabelID;
     typedef int PixelID;
     typedef int EnergyTerm;
-
 
     typedef typename itk::Image<LabelID, Dimension> LabelIdImage;
     typedef typename itk::Image<PixelID, Dimension> PixelIdImage;
@@ -48,10 +45,7 @@ public:
 
     typedef short EdgeCapacityType;
     typedef long long FlowType;
-
     typedef Graph<EdgeCapacityType,EdgeCapacityType,FlowType> GraphType;
-
-
 
     struct DataCostFunction {
         /* Compute data cost of assigning @label to the pixel with index @idx */
@@ -63,12 +57,7 @@ public:
         virtual int compute(ImageIndex idx1, ImageIndex idx2 ) = 0;
     };
 
-
-
 private:
-
-
-
     //============================
     // Member variables:
 
@@ -87,14 +76,8 @@ private:
     /* Number of neighbors */
     unsigned int _totalNeighbors;
 
-
-
-
-
-
     //============================
     // Member functions:
-
 
     /*
         Assign unique identifiers in pixels in ROI and store them in
@@ -127,9 +110,7 @@ private:
 
             _totalPixelsInROI++;
         }
-
     }
-
 
     void initializeDataCosts(DataCostFunction * dataCostFunction) {
 
@@ -152,9 +133,6 @@ private:
             } // if
         } // iteration through image
     }
-
-
-
 
     void initializeNeighbours(
         SmoothnessCostFunction * smoothnessCostFunction
@@ -209,9 +187,7 @@ private:
                 } // for dim
 
         } // iterating through ROI image
-
     }
-
 
     void updateLabelImageAccordingToGraph() {
 
@@ -235,9 +211,6 @@ private:
             _labelIdImage->SetPixel(it.GetIndex(), newLabel);
         }
     }
-
-
-
 
     /*
         Build the graph for the graph-cut segmentation.
@@ -272,10 +245,6 @@ private:
 
         _labelIdImage = labelImage;
     }
-
-
-
-
 
     /*
         Perform alpha-expansions and return the labeled image
